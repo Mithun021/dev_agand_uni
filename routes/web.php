@@ -29,6 +29,15 @@ Route::middleware(['auth'])->prefix('backend')->group(function () {
     Route::post('/employee/{employee_id}/update', [EmployeeController::class, 'update_employee'])->name('employee.update');
     Route::get('/employee/{employee_id}/destroy', [EmployeeController::class, 'destroy_employee'])->name('employee.destroy');
 
+    // Session Routes
+    Route::resource('/sessions', App\Http\Controllers\academic\session\SessionController::class);
+
+    // Course Routes
+    Route::resource('/courses', App\Http\Controllers\academic\course\CourseController::class);
+
+    // Institute Routes
+    Route::resource('/institutes', App\Http\Controllers\academic\institute\InstituteController::class);
+    
     Route::get('/permission', [PermissionController::class, 'permission'])->name('permission');
     Route::post('/permission/store', [PermissionController::class, 'permission_store'])->name('permission.store');
 

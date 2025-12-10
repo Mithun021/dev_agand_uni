@@ -40,6 +40,40 @@
                             <li>
                                 <a href="#sidebarAuth" data-bs-toggle="collapse">
                                     <i data-feather="users"></i>
+                                    <span> Academic </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="sidebarAuth">
+                                    <ul class="nav-second-level">
+                                        <li>
+                                            <a href="{{ route('courses.index') }}" class="tp-link">Course</a>
+                                        </li>
+                                        <li>
+                                            <a href="" class="tp-link">Branch</a>
+                                        </li>
+                                        <li>
+                                            <a href="" class="tp-link">Semester</a>
+                                        </li>
+                                        <li>
+                                            <a href="" class="tp-link">Annual</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('sessions.index') }}" class="tp-link">Session</a>
+                                        </li>
+                                        <li>
+                                            <a href="" class="tp-link">Scheme</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('institutes.index') }}" class="tp-link">Institue</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li> 
+
+
+                            <li>
+                                <a href="#sidebarAuth" data-bs-toggle="collapse">
+                                    <i data-feather="users"></i>
                                     <span> Employees </span>
                                     <span class="menu-arrow"></span>
                                 </a>
@@ -51,6 +85,8 @@
                                     </ul>
                                 </div>
                             </li> 
+
+                            
 
                             {{-- <li>
                                 <a href="widgets.html" class="tp-link">
