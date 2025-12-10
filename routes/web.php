@@ -1,0 +1,45 @@
+<?php
+
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\PermissionCategoryController;
+use App\Http\Controllers\PermissionController;
+use Illuminate\Support\Facades\Route;
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('admindashboard.get');
+});
+
+Route::middleware(['auth'])->prefix('backend')->group(function () {
+    // Route::get('/', function () {
+    //     return view('backend.index');
+    // });
+    // Route::get('/', [AdminController::class, 'index'])->name('admindashboard.get');
+
+    Route::get('/roles', [PermissionController::class, 'roles'])->name('roles');
+    Route::post('/roles/store', [PermissionController::class, 'roles_store'])->name('roles.store');
+    Route::get('/roles/{roles_id}/edit', [PermissionController::class, 'edit_roles'])->name('roles.edit');
+    Route::post('/roles/{roles_id}/update', [PermissionController::class, 'update_roles'])->name('roles.update');
+    Route::get('/roles/{roles_id}/destroy', [PermissionController::class, 'destroy_roles'])->name('roles.destroy');
+
+    Route::get('/employee', [EmployeeController::class, 'index'])->name('employee');
+    Route::post('/employee/store', [EmployeeController::class, 'employee_store'])->name('employee.store');
+    Route::get('/employee/{employee_id}/edit', [EmployeeController::class, 'edit_employee'])->name('employee.edit');
+    Route::post('/employee/{employee_id}/update', [EmployeeController::class, 'update_employee'])->name('employee.update');
+    Route::get('/employee/{employee_id}/destroy', [EmployeeController::class, 'destroy_employee'])->name('employee.destroy');
+
+    Route::get('/permission', [PermissionController::class, 'permission'])->name('permission');
+    Route::post('/permission/store', [PermissionController::class, 'permission_store'])->name('permission.store');
+
+    Route::resource('/permission-categories',PermissionCategoryController::class);
+
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout.backend');
+
+});
+
+// Route::get('/backend/login', function () {
+//     return view('backend.login');
+// });
+Route::get('backend/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('backend/login', [AuthController::class, 'login'])->name('adminlogin.post');
