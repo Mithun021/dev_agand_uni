@@ -24,7 +24,7 @@ class SessionController extends Controller
      */
     public function create()
     {
-        return view('backend.academic.session.create');
+       // return view('backend.academic.session.create');
     }
 
     /**
@@ -58,7 +58,8 @@ class SessionController extends Controller
      */
     public function edit(string $id)
     {
-        //
+          $session = Session::findOrFail($id);
+        return view('backend.academic.session.edit', compact('session'));
     }
 
     /**
@@ -66,16 +67,16 @@ class SessionController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $course = Course::findOrFail($id);
+        $session = Session::findOrFail($id);
         $data = $request->validate([
-            'course'        => 'required|string|max:191|unique:courses,course,'.$course->id,
+            'session'        => 'required|string|max:191|unique:course_sessions,session,'.$session->id,
             'is_active'      => 'required|boolean',
         ]);
 
-        $course->update($data);
+        $session->update($data);
         return redirect()
-            ->route('courses.index')
-            ->with('success', 'Course updated successfully.');
+            ->route('sessions.index')
+            ->with('success', 'Session updated successfully.');
     }
 
     /**
@@ -83,6 +84,11 @@ class SessionController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+         $session = Session::findOrFail($id);
+        $session->delete();
+
+        return redirect()
+            ->route('sessions.index')
+            ->with('success', 'Sesssion deleted successfully.');
     }
 }

@@ -28,6 +28,31 @@
                         <input class="form-control" type="text" name="institute" value="{{ old('institute',$institute->institute) }}" >
                         <span class="text-danger">@error('institue'){{ $message }} @enderror</span>
                     </div>
+
+                    <div class="col-6 form-group mb-3">
+                        <label class="form-label">City</label>
+                        <input class="form-control" type="text" name="city" value="{{ old('city',$institute->city) }}" >
+                        <span class="text-danger">@error('city'){{ $message }} @enderror</span>
+                    </div>
+
+                    <div class="col-6 form-group mb-3">
+                        <label class="form-label">State</label>
+                        <input class="form-control" type="text" name="state" value="{{ old('state',$institute->state) }}" >
+                        <span class="text-danger">@error('state'){{ $message }} @enderror</span>
+                    </div>
+
+                    <div class="col-6 form-group mb-3">
+                        <label class="form-label">Email</label>
+                        <input class="form-control" type="text" name="email" value="{{ old('email',$institute->email) }}" >
+                        <span class="text-danger">@error('email'){{ $message }} @enderror</span>
+                    </div>
+
+                    <div class="col-6 form-group mb-3">
+                        <label class="form-label">Phone no.</label>
+                        <input class="form-control" type="text" name="phone" value="{{ old('phone',$institute->phone) }}" >
+                        <span class="text-danger">@error('phone'){{ $message }} @enderror</span>
+                    </div>
+
                     <div class="col-md-6">
                         <label for="input14" class="form-label">Status</label>
                         <div class="position-relative input-icon">

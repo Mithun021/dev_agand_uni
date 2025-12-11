@@ -1,69 +1,46 @@
 @extends('backend.partial.master')
-@section('title', 'Edit Employee')
+@section('title', 'Edit Session')
 @section('backend-content')
 
 <div class="row">
     <div class="col-sm-12 col-md-12">
         <div class="card">
-            <div class="card-header pb-0"><h4>Edit Employee</h4></div>
-            <form class="form theme-form" method="post" action="{{ route('employee.update',$user->id) }}">
+            @if($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+            <div class="card-header pb-0"><h4>Edit Session</h4></div>
+            <form class="form theme-form" method="POST" action="{{ route('sessions.update', $session->id) }}">
                 @csrf
+                @method('PUT')
             <div class="card-body">
                 @if(session('message'))
                     {!! session('message') !!}
                 @endif
                 <div class="row">
                     <div class="col-6 form-group mb-3">
-                        <label class="form-label">Name</label>
-                        <input class="form-control" type="text" name="name" value="{{ old('name',$user->name) }}" >
-                        <span class="text-danger">@error('name'){{ $message }} @enderror</span>
+                        <label class="form-label">Session</label>
+                        <input class="form-control" type="text" name="session" value="{{ old('session',$session->session) }}" >
+                        <span class="text-danger">@error('session'){{ $message }} @enderror</span>
                     </div>
-                    <div class="col-6 form-group mb-3">
-                        <label class="form-label">Email</label>
-                        <input class="form-control" type="email" name="email" value="{{ old('email',$user->email) }}" >
-                        <span class="text-danger">@error('email'){{ $message }} @enderror</span>
-                    </div>
-                    <div class="col-6 form-group mb-3">
-                        <label class="form-label">Phone</label>
-                        <input class="form-control" type="text" name="phone" value="{{ old('phone',$user->phone) }}" >
-                        <span class="text-danger">@error('phone'){{ $message }} @enderror</span>
-                    </div>
-                    <div class="col-6 form-group mb-3">
-                        <label class="form-label">City</label>
-                        <input class="form-control" type="text" name="city" value="{{ old('city',$user->city) }}" >
-                        <span class="text-danger">@error('city'){{ $message }} @enderror</span>
-                    </div>
-                    <div class="col-6 form-group mb-3">
-                        <label class="form-label">State</label>
-                        <input class="form-control" type="text" name="state" value="{{ old('state',$user->state) }}" >
-                        <span class="text-danger">@error('state'){{ $message }} @enderror</span>
-                    </div>
-                    <div class="col-6 form-group mb-3">
-                        <label class="form-label">Password</label>
-                        <input class="form-control" type="password" name="password" value="{{ old('password') }}" >
-                        <span class="text-danger">@error('password'){{ $message }} @enderror</span>
-                    </div>
-                    <div class="col-12 form-group">
-                        <div class="row">
-                        @foreach ($roles as $key => $role)
-                            <div class="col-md-3 col-sm-4 col-6 mb-2">
-                                <div class="form-check">
-                                    <input
-                                        type="checkbox"
-                                        name="roles[]"
-                                        id="role{{ $key }}"
-                                        value="{{ $role->name }}"
-                                        {{ (is_array(old('roles')) && in_array($role->name, old('roles'))) || in_array($role->id, $hasRole) ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="role{{ $key }}">{{ $role->name }}</label>
-                                </div>
-                            </div>
-                        @endforeach
-                        </div>
-                        <span class="text-danger">@error('roles'){{ $message }} @enderror</span>
-                    </div>
-                </div>
+                    <div class="col-md-6">
+                        <label for="input14" class="form-label">Status</label>
+                        <div class="position-relative input-icon">
+                            <select name="is_active" class="form-control @error('is_active') is-invalid @enderror" id="input14" required>
+                                <option value="" disabled {{ old('is_active', $session->is_active) === '' ? 'selected' : '' }}>Select Status</option>
+                                <option value="1" {{ old('is_active', $session->is_active) == '1' ? 'selected' : '' }}>Active</option>
+                                <option value="0" {{ old('is_active', $session->is_active) == '0' ? 'selected' : '' }}>Inactive</option>
+                            </select>
+                            <span class="position-absolute top-50 translate-middle-y"><i class="bi bi-toggle-on"></i></span>
+                            @error('is_active')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                        </div>  
 
-            </div>
+                    
             <div class="card-footer text-end py-2">
                 <button class="btn btn-primary" type="submit">Submit</button>
             </div>

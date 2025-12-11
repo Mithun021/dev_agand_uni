@@ -14,6 +14,10 @@ return new class extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('course')->unique();
+            $table->enum('course_type', ['Semester', 'Annual']);
+            $table->unsignedBigInteger('semester_id')->nullable();
+            $table->unsignedBigInteger('annual_id')->nullable();
+            $table->unsignedBigInteger('branch_id');
             $table->boolean('is_active')->default(True);
             $table->timestamps();
         });

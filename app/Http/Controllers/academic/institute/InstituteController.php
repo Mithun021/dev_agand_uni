@@ -22,7 +22,7 @@ class InstituteController extends Controller
      */
     public function create()
     {
-         return view('backend.academic.institute.create');
+        // return view('backend.academic.institute.create');
     }
 
     /**
@@ -32,7 +32,12 @@ class InstituteController extends Controller
     {
          $data = $request->validate([
         'institute'        => 'required|string|max:191|unique:course_institutes,institute',
-        'is_active'      => 'required|boolean',
+        'city'             => 'nullable|string|max:191',
+        'state'            => 'nullable|string|max:191',
+        'email'            => 'nullable|email|max:191',
+        'phone'            => ['nullable', 'regex:/^[6-9]\d{9}$/'],
+        'password'         => 'nullable|string|min:6',
+        'is_active'        => 'required|boolean',
         
     ]);
 
@@ -70,6 +75,11 @@ class InstituteController extends Controller
          $institute = Institute::findOrFail($id);
         $data = $request->validate([
             'institute'        => 'required|string|max:191|unique:course_institutes,institute,'.$institute->id,
+            'city'             => 'nullable|string|max:191',
+            'state'            => 'nullable|string|max:191',
+            'email'            => 'nullable|email|max:191',
+            'phone'            => 'nullable|string|max:20',
+            'password'         => 'nullable|string|min:6',
             'is_active'      => 'required|boolean',
         ]);
 

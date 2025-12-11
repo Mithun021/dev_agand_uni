@@ -10,6 +10,11 @@ class Institute extends Model
 
     protected $fillable = [
         'institute',
+        'city',
+        'state',
+        'email',
+        'phone',
+        'password',
         'is_active',
     ];
 }

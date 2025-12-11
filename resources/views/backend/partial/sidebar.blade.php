@@ -39,7 +39,7 @@
 
                             <li>
                                 <a href="#sidebarAuth" data-bs-toggle="collapse">
-                                    <i data-feather="users"></i>
+                                    <i data-feather="book-open"></i>
                                     <span> Academic </span>
                                     <span class="menu-arrow"></span>
                                 </a>
@@ -49,19 +49,19 @@
                                             <a href="{{ route('courses.index') }}" class="tp-link">Course</a>
                                         </li>
                                         <li>
-                                            <a href="" class="tp-link">Branch</a>
+                                            <a href="{{ route('branches.index') }}" class="tp-link">Branch</a>
                                         </li>
                                         <li>
-                                            <a href="" class="tp-link">Semester</a>
+                                            <a href="{{ route('semesters.index') }}" class="tp-link">Semester</a>
                                         </li>
                                         <li>
-                                            <a href="" class="tp-link">Annual</a>
+                                            <a href="{{ route('annuals.index') }}" class="tp-link">Annual</a>
                                         </li>
                                         <li>
                                             <a href="{{ route('sessions.index') }}" class="tp-link">Session</a>
                                         </li>
                                         <li>
-                                            <a href="" class="tp-link">Scheme</a>
+                                            <a href="{{ route('schemes.index') }}" class="tp-link">Scheme</a>
                                         </li>
                                         <li>
                                             <a href="{{ route('institutes.index') }}" class="tp-link">Institue</a>
