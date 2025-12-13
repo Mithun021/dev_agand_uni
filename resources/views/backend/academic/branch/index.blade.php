@@ -20,8 +20,29 @@
                             </div>
                         @endif
 
+                         <div class="row">
+                                <div class="form-group mb-3">
+                                    <label class="form-label">Course<span class="text-danger">*</span></label>
+                                    <select name="course_id" class="form-control @error('course_id') is-invalid @enderror">
+                                        <option value="" disabled {{ old('course_id') ? '' : 'selected' }}>Select Course
+                                        </option>
+                                        @foreach ($courses as $course)
+                                            <option value="{{ $course->id }}"
+                                                {{ old('course_id') == $course->id ? 'selected' : '' }}>
+                                                {{ $course->course }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    <span class="text-danger">
+                                        @error('course_id')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
+                                </div>
+                            </div>
+
                         <div class="form-group mb-3">
-                            <label class="form-label">Branch Name <span class="text-danger">*</span></label>
+                            <label class="form-label">Branch Name (if no branch, leave empty)</label>
                             <input class="form-control" type="text" name="branch_name" value="{{ old('branch_name') }}">
                             <span class="text-danger">@error('branch_name'){{ $message }}@enderror</span>
                         </div>
@@ -51,8 +72,8 @@
                         <table class="table table-bordered dt-responsive nowrap" id="responsive-datatable">
                             <thead>
                                 <tr>
-                                
-                                    <th>Branch Name</th>
+                                    <th>Course </th>
+                                    <th>Branch </th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -60,8 +81,8 @@
                             <tbody>
                                 @foreach ($branches as $branch)
                                     <tr>
-                                        
-                                        <td>{{ $branch->branch_name }}</td>
+                                        <td>{{ $branch->course->course  ?? 'No Course Assigned' }}</td>
+                                        <td>{{ $branch->branch_name ?? 'No Branch Assigned' }}</td>
                                         <td>
                                             <a href="{{ route('branches.edit', $branch->id) }}"
                                                class="btn btn-sm btn-primary">Edit</a>
@@ -90,6 +111,9 @@
     @endcan
 
 </div>
+
+
+
 
 @endsection
 

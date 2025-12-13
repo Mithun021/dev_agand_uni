@@ -80,7 +80,7 @@
                         <table class="table table-bordered dt-responsive nowrap" id="responsive-datatable">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                    {{-- <th>#</th> --}}
                                     <th>Session</th>
                                     <th>Status</th>
                                     <th>Actions</th>
@@ -90,7 +90,7 @@
                             <tbody>
                                 @foreach($sessions as $session)
                                     <tr>
-                                        <td>{{ $session->id }}</td>
+                                        {{-- <td>{{ $session->id }}</td> --}}
                                         <td>{{ $session->session }}</td>
 
                                         {{-- Status Badge --}}

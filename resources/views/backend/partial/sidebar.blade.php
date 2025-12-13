@@ -66,6 +66,9 @@
                                         <li>
                                             <a href="{{ route('institutes.index') }}" class="tp-link">Institue</a>
                                         </li>
+                                         <li>
+                                            <a href="{{ route('assign-curriculams.index') }}" class="tp-link">Assign Curriculum</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </li> 

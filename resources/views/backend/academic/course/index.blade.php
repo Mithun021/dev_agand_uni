@@ -32,7 +32,7 @@
 
 
 
-                            <div class="row">
+                            {{-- <div class="row">
                                 <div class="col-12 form-group mb-3">
                                     <label class="form-label">Course Type (Semester/Annual)<span
                                             class="text-danger">*</span></label>
@@ -49,10 +49,10 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                            </div>
+                            </div> --}}
 
                             {{-- Semester dropdown (hidden by default) --}}
-                            <div class="row" id="semester_row" style="display: none;">
+                            {{-- <div class="row" id="semester_row" style="display: none;">
                                 <div class="col-12 form-group mb-3">
                                     <label class="form-label">Semester<span class="text-danger">*</span></label>
                                     <select name="semester_id" class="form-control @error('semester_id') is-invalid @enderror">
@@ -69,10 +69,10 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                            </div>
+                            </div> --}}
 
                             {{-- Annual dropdown --}}
-                            <div class="row" id="annual_row" style="display: none;">
+                            {{-- <div class="row" id="annual_row" style="display: none;">
                                 <div class="col-12 form-group mb-3">
                                     <label class="form-label">Annual<span class="text-danger">*</span></label>
                                     <select name="annual_id" class="form-control @error('annual_id') is-invalid @enderror">
@@ -89,13 +89,13 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                            </div>
+                            </div> --}}
 
 
 
 
 
-                            <div class="row">
+                            {{-- <div class="row">
                                 <div class="col-12 form-group mb-3">
                                     <label class="form-label">Branch</label>
                                     <select name="branch_id" class="form-control @error('branch_id') is-invalid @enderror">
@@ -112,7 +112,7 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="col-md-12">
                                 <label for="input14" class="form-label">Status</label>
@@ -156,10 +156,10 @@
                                     <tr>
                                        
                                         <th>Course</th>
-                                        <th>Course Type</th>
-                                        <th>Branch</th> 
+                                        {{-- <th>Course Type</th> --}}
+                                        {{-- <th>Branch</th> 
                                         <th>Semester</th>
-                                        <th>Annual(yearly)</th>                                                                           
+                                        <th>Annual(yearly)</th>                                                                            --}}
                                         <th>Status</th>
                                         <th>Actions</th>
                                     </tr>
@@ -169,10 +169,10 @@
                                         <tr>
                                             
                                             <td>{{ $course->course }}</td>
-                                            <td>{{ $course->course_type }}</td>
+                                            {{-- <td>{{ $course->course_type }}</td>
                                             <td>{{ $course->branch->branch_name ?? 'N/A' }}</td>
                                             <td>{{ $course->semester->semester ?? 'N/A' }}</td>
-                                            <td>{{ $course->annual->year ?? 'N/A' }}</td>                                            
+                                            <td>{{ $course->annual->year ?? 'N/A' }}</td>                                             --}}
                                             <td>{{ $course->is_active ? 'Active' : 'Inactive' }}</td>
                                             <td>
                                                 <a href="{{ route('courses.edit', $course->id) }}"
@@ -196,7 +196,7 @@
         @endcan
     </div>
 
-<script>
+{{-- <script>
     console.log("Script Loaded"); // DEBUG
 document.addEventListener('DOMContentLoaded', function() {
     let courseType = document.getElementById('course_type');
@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleFields();
     courseType.addEventListener('change', toggleFields);
 });
-</script>
+</script> --}}
 
 
 @endsection

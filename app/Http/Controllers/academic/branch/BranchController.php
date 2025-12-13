@@ -4,6 +4,7 @@ namespace App\Http\Controllers\academic\branch;
 
 use App\Http\Controllers\Controller;
 use App\Models\academic\branch\Branch;
+use App\Models\academic\course\Course;
 use Illuminate\Http\Request;
 
 class BranchController extends Controller
@@ -13,8 +14,10 @@ class BranchController extends Controller
      */
     public function index()
     {
-         $branches = Branch::all();
-        return view('backend.academic.branch.index', compact('branches'));
+         $branches = Branch::with('course')->get();
+        
+         $courses = Course::all();
+        return view('backend.academic.branch.index', compact('branches', 'courses'));
     }
 
     /**
@@ -30,8 +33,10 @@ class BranchController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all());
          $data = $request->validate([
-        'branch_name'        => 'required|string|max:191|unique:course_branches,branch_name',
+        'branch_name'        => 'nullable|string|max:191',
+        'course_id'          => 'required|exists:courses,id',
         
         
     ]);
@@ -57,7 +62,8 @@ class BranchController extends Controller
     public function edit(string $id)
     {
             $branch = Branch::findOrFail($id);
-        return view('backend.academic.branch.edit', compact('branch'));
+             $courses = Course::all();
+        return view('backend.academic.branch.edit', compact('branch', 'courses'));
     }
 
     /**
@@ -67,7 +73,7 @@ class BranchController extends Controller
     {
          $branch = Branch::findOrFail($id);
         $data = $request->validate([
-            'branch_name'        => 'required|string|max:191|unique:course_branches,branch_name,'.$branch->id,
+            'branch_name'        => 'nullable|string|max:191|unique:course_branches,branch_name,'.$branch->id,
             
         ]);
 

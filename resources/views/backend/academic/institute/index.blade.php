@@ -89,7 +89,7 @@
                         <table class="table table-bordered dt-responsive nowrap" id="responsive-datatable">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                    {{-- <th>#</th> --}}
                                     <th>Institute Name</th>
                                     <th>City</th>
                                     <th>State</th>
@@ -103,7 +103,7 @@
                             <tbody>
                                 @foreach ($institutes as $institute)
                                     <tr>
-                                        <td>{{ $institute->id }}</td>
+                                        {{-- <td>{{ $institute->id }}</td> --}}
                                         <td>{{ $institute->institute }}</td>
                                         <td>{{ $institute->city }}</td>
                                         <td>{{ $institute->state }}</td>

@@ -17,10 +17,7 @@ class CourseController extends Controller
     public function index()
     {
         $courses = Course::all();
-        $branches = Branch::all();
-        $semesters = Semester::all();
-        $annuals = Annual::all();
-        return view('backend.academic.course.index', compact('courses', 'branches','semesters', 'annuals'));
+        return view('backend.academic.course.index', compact('courses'));
     }
 
     /**
@@ -28,7 +25,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-       //return view('backend.academic.course.create');
+       
     }
 
     /**
@@ -38,11 +35,7 @@ class CourseController extends Controller
     {
         //dd($request->all());
          $data = $request->validate([
-        'course'        => 'required|string|max:191',
-        'course_type'   => 'required|string|in:Semester,Annual',
-        'semester_id'   => 'nullable|required_if:course_type,Semester|exists:course_semesters,id',
-        'annual_id'     => 'nullable|required_if:course_type,Annual|exists:course_annuals,id',
-        'branch_id'     => 'nullable|exists:course_branches,id',
+        'course'        => 'required|string|max:191|unique:courses,course,',
         'is_active'     => 'required|boolean',
         
     ]);

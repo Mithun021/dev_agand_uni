@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\academic\annual\AnnualController;
+use App\Http\Controllers\academic\assignCurriculam\AssignCurriculamController;
 use App\Http\Controllers\academic\branch\BranchController;
 use App\Http\Controllers\academic\course\CourseController;
 use App\Http\Controllers\academic\institute\InstituteController;
@@ -56,6 +57,12 @@ Route::middleware(['auth'])->prefix('backend')->group(function () {
 
     //Annual Routes
     Route::resource('/annuals', AnnualController::class);
+
+    //Assign Curriculam Routes
+    Route::resource('/assign-curriculams', AssignCurriculamController::class);
+    Route::get('/assign-curriculam/get-branches/{course_id}', [AssignCurriculamController::class, 'getBranches'])->name('assign-curriculam.getBranches');
+    
+
 
     Route::get('/permission', [PermissionController::class, 'permission'])->name('permission');
     Route::post('/permission/store', [PermissionController::class, 'permission_store'])->name('permission.store');

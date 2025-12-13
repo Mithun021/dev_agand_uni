@@ -30,7 +30,8 @@
                     </div>
                     
             <div class="card-footer text-end py-2">
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-primary">Update</button>
+                <a href="{{ route('annuals.index') }}" class="btn btn-secondary">Cancel</a>
             </div>
             </form>
         </div>
