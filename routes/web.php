@@ -2,9 +2,16 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BatchController;
+use App\Http\Controllers\BranchController;
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\InstituteController;
 use App\Http\Controllers\PermissionCategoryController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\SchemeController;
+use App\Http\Controllers\SemesterController;
+use App\Http\Controllers\SubjectController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth'])->group(function () {
@@ -16,6 +23,14 @@ Route::middleware(['auth'])->prefix('backend')->group(function () {
     //     return view('backend.index');
     // });
     // Route::get('/', [AdminController::class, 'index'])->name('admindashboard.get');
+
+    Route::resource('institutes', InstituteController::class);
+    Route::resource('semesters',SemesterController::class);
+    Route::resource('sessions',BatchController::class);
+    Route::resource('schemes',SchemeController::class);
+    Route::resource('courses',CourseController::class);
+    Route::resource('branches',BranchController::class);
+    Route::resource('subjects',SubjectController::class);
 
     Route::get('/roles', [PermissionController::class, 'roles'])->name('roles');
     Route::post('/roles/store', [PermissionController::class, 'roles_store'])->name('roles.store');

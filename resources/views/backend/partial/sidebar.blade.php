@@ -45,9 +45,11 @@
                                 </a>
                                 <div class="collapse" id="academic">
                                     <ul class="nav-second-level">
-                                        <li>
-                                            <a href="{{ route('employee') }}" class="tp-link">Employee List</a>
-                                        </li>
+                                        <li><a href="{{ route('employee') }}" class="tp-link">Courses</a></li>
+                                        <li><a href="{{ route('employee') }}" class="tp-link">Branch</a></li>
+                                        <li><a href="{{ route('employee') }}" class="tp-link">Scheme</a></li>
+                                        <li><a href="{{ route('employee') }}" class="tp-link">Semester</a></li>
+                                        <li><a href="{{ route('employee') }}" class="tp-link">Session</a></li>
                                     </ul>
                                 </div>
                             </li> 
