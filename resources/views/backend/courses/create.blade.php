@@ -2,6 +2,17 @@
 @section('title', 'Courses')
 @section('sub_title', 'Add New Courses')
 @section('backend-content')
+<style>
+    .scroll-box {
+        max-height: 300px;
+        overflow-y: auto;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 4px;
+        background: #fff;
+    }
+</style>
+
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -42,7 +53,7 @@
                         {{-- Semester --}}
                         <div class="col-md-4 form-group mb-2">
                             <label>Semester</label>
-                            <div class="border p-2">
+                            <div class="scroll-box">
                                 @foreach($semesters as $semester)
                                     <div>
                                         <input type="checkbox" name="semester[]" value="{{ $semester->id }}">
@@ -55,7 +66,7 @@
                         {{-- Scheme --}}
                         <div class="col-md-4 form-group mb-2">
                             <label>Scheme <span class="text-danger">*</span></label>
-                            <div class="border p-2">
+                            <div class="scroll-box">
                                 @foreach($schemes as $scheme)
                                     <div>
                                         <input type="checkbox" name="scheme[]" value="{{ $scheme->id }}">
@@ -68,7 +79,7 @@
                         {{-- Session / Batch --}}
                         <div class="col-md-4 form-group mb-2">
                             <label>Session / Batch <span class="text-danger">*</span></label>
-                            <div class="border p-2">
+                            <div class="scroll-box">
                                 @foreach($batches as $batch)
                                     <div>
                                         <input type="checkbox" name="batch[]" value="{{ $batch->id }}">
@@ -81,15 +92,16 @@
                         {{-- Institute --}}
                         <div class="col-md-12 form-group mb-2">
                             <label>Institute <span class="text-danger">*</span></label>
-                            <div class="border p-2">
+                            <div class="scroll-box">
                                 @foreach($institutes as $institute)
-                                    <div class="d-inline-block mr-3">
+                                    <div class="">
                                         <input type="checkbox" name="institute[]" value="{{ $institute->id }}">
                                         {{ $institute->name }}
                                     </div>
                                 @endforeach
                             </div>
                         </div>
+
 
                     </div>
                 </div>
