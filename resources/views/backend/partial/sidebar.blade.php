@@ -35,7 +35,7 @@
                                 </a>
                             </li>
 
-                            <li class="menu-title">Academics</li>
+                            <li class="menu-title">Academic Panel</li>
 
                             <li>
                                 <a href="#academics" data-bs-toggle="collapse">
