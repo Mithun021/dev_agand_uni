@@ -7,11 +7,45 @@
         <div class="card">
             <div class="card-header d-flex justify-content-between">
                 <h4 class="m-0">Course List</h4>
-                <a href="{{ route('courses.index') }}" class="btn btn-primary">Back</a>
+                <a href="{{ route('courses.index') }}" class="btn btn-sm btn-dark">Back</a>
             </div>
+            <form action="" method="post">
+                @csrf
             <div class="card-body">
-
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="">Course Name<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" name="name">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Course Code</label>
+                        <input type="text" class="form-control" name="course_type">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Course Type<span class="text-danger">*</span></label>
+                        <select name="course_type" class="form-control">
+                            <option value="Annual Based">Annual Based</option>
+                            <option value="Semester Based">Semester Based</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Semester</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Scheme<span class="text-danger">*</span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Session<span class="text-danger">*</span></label>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Institute<span class="text-danger">*</span></label>
+                    </div>
+                </div>
             </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Save Course</button>
+            </div>
+            </form>
         </div>
     </div>
 </div>
