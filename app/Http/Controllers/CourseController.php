@@ -29,10 +29,10 @@ class CourseController extends Controller
     public function create()
     {
         return view('backend.courses.create',[
-            'institutes' => Institute::all(),
-            'semesters' => Semester::all(),
-            'schemes' => Scheme::all(),
-            'batches' => Batch::all()
+            'schemes'    => Scheme::orderBy('name')->get(),
+            'semesters'  => Semester::orderBy('name')->get(),
+            'batches'    => Batch::orderBy('name')->get(),
+            'institutes' => Institute::orderBy('name')->get(),
         ]);
     }
 

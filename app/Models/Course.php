@@ -10,6 +10,8 @@ class Course extends Model
     // Mass assignable attributes
     protected $fillable = [
         'name',
+        'course_code',
+        'course_type',
     ];
 
     public function semesters()
