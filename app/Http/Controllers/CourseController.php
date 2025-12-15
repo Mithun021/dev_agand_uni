@@ -44,6 +44,8 @@ class CourseController extends Controller
         // dd($request->all());
         $validated = $request->validate([
             'name' => 'required|string|max:255',
+            'course_code' => 'nullable|string|max:100',
+            'course_type' => 'required|string',
             'semester' => 'array|nullable',
             'scheme' => 'array|nullable',
             'institute' => 'array|nullable',
@@ -52,6 +54,8 @@ class CourseController extends Controller
 
         $course = Course::create([
             'name' => $validated['name'],
+            'course_code' => $validated['course_code'],
+            'course_type' => $validated['course_type'],
         ]);
 
         if (!empty($validated['semester'])) {
