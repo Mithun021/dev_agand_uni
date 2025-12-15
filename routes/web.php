@@ -8,6 +8,7 @@ use App\Http\Controllers\academic\institute\InstituteController;
 use App\Http\Controllers\academic\scheme\SchemeController;
 use App\Http\Controllers\academic\semester\SemesterController;
 use App\Http\Controllers\academic\session\SessionController;
+use App\Http\Controllers\academic\subject\SubjectController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmployeeController;
@@ -62,6 +63,8 @@ Route::middleware(['auth'])->prefix('backend')->group(function () {
     Route::resource('/assign-curriculams', AssignCurriculamController::class);
     Route::get('/assign-curriculam/get-branches/{course_id}', [AssignCurriculamController::class, 'getBranches'])->name('assign-curriculam.getBranches');
     
+    //Subject Routes
+    Route::resource('/subjects',SubjectController::class);
 
 
     Route::get('/permission', [PermissionController::class, 'permission'])->name('permission');
