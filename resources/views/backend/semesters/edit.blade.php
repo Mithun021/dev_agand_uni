@@ -1,5 +1,5 @@
 @extends('backend.partial.master')
-@section('title', 'Session')
+@section('title', 'Semester')
 @section('backend-content')
 
 @endsection
