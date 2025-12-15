@@ -16,7 +16,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        return view('courses/index',[
+        return view('backend.courses.index',[
             'courses' => Course::with(['institutes', 'schemes', 'semesters','batches'])
                         ->orderBy('name', 'ASC')
                         ->get(),
