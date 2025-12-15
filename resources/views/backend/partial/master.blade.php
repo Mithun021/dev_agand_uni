@@ -14,8 +14,8 @@
 
                 <div class="text-end">
                     <ol class="breadcrumb m-0 py-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Dashbard</a></li>
-                        <li class="breadcrumb-item active">@yield('title', 'Dcode Materials')</li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">@yield('title', 'Dashboard')</a></li>
+                        <li class="breadcrumb-item active">@yield('sub_title', 'Home')</li>
                     </ol>
                 </div>
             </div>
