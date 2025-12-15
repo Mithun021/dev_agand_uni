@@ -28,7 +28,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('Courses/create',[
+        return view('backend.courses.create',[
             'institutes' => Institute::all(),
             'semesters' => Semester::all(),
             'schemes' => Scheme::all(),
