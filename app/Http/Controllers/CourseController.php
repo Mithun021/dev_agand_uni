@@ -8,7 +8,6 @@ use App\Models\Institute;
 use App\Models\Scheme;
 use App\Models\Semester;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
 
 class CourseController extends Controller
 {
@@ -17,7 +16,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Courses/index',[
+        return view('courses/index',[
             'courses' => Course::with(['institutes', 'schemes', 'semesters','batches'])
                         ->orderBy('name', 'ASC')
                         ->get(),
@@ -29,7 +28,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Courses/create',[
+        return view('Courses/create',[
             'institutes' => Institute::all(),
             'semesters' => Semester::all(),
             'schemes' => Scheme::all(),
@@ -89,7 +88,7 @@ class CourseController extends Controller
     {
         $course = Course::with(['institutes', 'schemes', 'semesters','batches'])->findOrFail($id);
 
-        return Inertia::render('Courses/edit', [
+        return view('Courses/edit', [
             'course' => $course,
             'institutes' => Institute::all(),
             'semesters' => Semester::all(),
