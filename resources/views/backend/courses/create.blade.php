@@ -13,7 +13,7 @@
                 @csrf
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <label for="">Course Name<span class="text-danger">*</span></label>
                         <input type="text" class="form-control" name="name">
                     </div>
@@ -37,7 +37,7 @@
                     <div class="col-md-6">
                         <label for="">Session<span class="text-danger">*</span></label>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <label for="">Institute<span class="text-danger">*</span></label>
                     </div>
                 </div>
