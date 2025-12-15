@@ -28,13 +28,13 @@
                             <option value="Semester Based">Semester Based</option>
                         </select>
                     </div>
-                    <div class="col-md-6 form-group mb-2">
+                    <div class="col-md-4 form-group mb-2">
                         <label for="">Semester</label>
                     </div>
-                    <div class="col-md-6 form-group mb-2">
+                    <div class="col-md-4 form-group mb-2">
                         <label for="">Scheme<span class="text-danger">*</span></label>
                     </div>
-                    <div class="col-md-6 form-group mb-2">
+                    <div class="col-md-4 form-group mb-2">
                         <label for="">Session<span class="text-danger">*</span></label>
                     </div>
                     <div class="col-md-12 form-group mb-2">
