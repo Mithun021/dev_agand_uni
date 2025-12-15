@@ -35,6 +35,23 @@
                                 </a>
                             </li>
 
+                            <li class="menu-title">Acadmic</li>
+
+                            <li>
+                                <a href="#academic" data-bs-toggle="collapse">
+                                    <i data-feather="book-open"></i>
+                                    <span> Acadmic </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="academic">
+                                    <ul class="nav-second-level">
+                                        <li>
+                                            <a href="{{ route('employee') }}" class="tp-link">Employee List</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li> 
+
                             <li class="menu-title">Pages</li>
 
                             <li>
